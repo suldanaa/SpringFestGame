@@ -13,6 +13,16 @@ canvas#board {
     border-radius: 20px;
 }
 
+body{
+    background-color: #00539C;
+    font-family: 'Angkor', cursive;
+    color: #EEA47F;
+}
+button{
+    background-color: #00539C;
+    font-family: 'Angkor', cursive;
+}
+
 .settings>button {
     font-size: 2vh;
     margin: 0 1vh;
