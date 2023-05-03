@@ -13,10 +13,6 @@ canvas#board {
     border-radius: 20px;
 }
 
-h1 {
-    font-family: 'Work Sans', sans-serif;
-}
-
 .settings>button {
     font-size: 2vh;
     margin: 0 1vh;
