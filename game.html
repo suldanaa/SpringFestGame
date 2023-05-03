@@ -3,25 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" , content="width-device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake</title>
-    <link rel="stylesheet" href="snake.css">
+    <link rel="stylesheet" href="css/snake.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap"
+    rel="stylesheet">
     <script src="snake.js"> </script>
 </head>
 
 <body style="text-align:center">
     <h1>Snake Game</h1>
     <canvas id="board"> </canvas>
-    <div>
-        <button onclick="goUp()">UP</button><br><br>
-        <button onclick="goLeft()">LEFT</button>
-        <button onclick="goRight()">RIGHT</button><br><br>
-        <button onclick="goDown()">DOWN</button><br><br>
+    <div style="margin-top: 1vh;"></div>
+    <div class="controls">
+        <button onclick="goUp()">▲</button><br><br>
+        <button onclick="goLeft()">◄</button>
+        <button onclick="goRight()">►</button><br><br>
+        <button onclick="goDown()">▼</button><br><br>
+    </div>
+    <div class="settings">
         <button onclick="changeSpeed(false)">- SPEED</button>
         <button onclick="changeSpeed(true)">+ SPEED</button><br><br>
         <div id="speed">3</div>
         <div id="score">SCORE: 0</div>
-
     </div>
     <audio id="failAudio">
         <source src="media/fail-sfx.wav" type="audio/wav">

@@ -19,7 +19,8 @@ var foodY;
 var score = 0;
 var gameOver = false;
 
-var speed = 2;
+var speed = 4;
+var minSpeed = 4;
 
 window.onload = function () {
     board = document.getElementById("board");
@@ -29,7 +30,7 @@ window.onload = function () {
 
     placeFood();
     document.addEventListener("keyup", changeDirection);
-    intervalId = setInterval(update, 1000 / (speed)); // store the interval ID
+    intervalId = setInterval(update, 1000 / (6 + speed)); // store the interval ID
 }
 
 function changeSpeed(incOrDec) {
@@ -37,22 +38,21 @@ function changeSpeed(incOrDec) {
     if (incOrDec) {
         speed += 2;
     } else {
-        if (speed <= 2) {
-            speed = 2;
+        if (speed <= minSpeed) {
+            speed = minSpeed;
             return;
         } else {
             speed -= 2;
         }
     }
     clearInterval(intervalId);
-    intervalId = setInterval(update, 1000 / (10 + speed));
+    intervalId = setInterval(update, 1000 / (6 + speed));
 }
 
 function update() {
     if (gameOver) {
         return;
     }
-    var interval = 1000 / (10 + speed);
     context.fillStyle = "black";//changes color of the board
     context.fillRect(0, 0, board.width, board.height);
 
@@ -62,6 +62,10 @@ function update() {
     if (snakeX == foodX && snakeY == foodY) {
         snakeBody.push([foodX, foodY]);
         score++;
+        if (score % 5 == 0) {
+            minSpeed += 2;
+            changeSpeed(true);
+        }
         document.getElementById("score").innerHTML = "SCORE: " + score;
         var audio = document.getElementById('eatAudio');
         audio.play();

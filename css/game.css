@@ -1,0 +1,55 @@
+canvas#board {
+    width: 18%;
+}
+
+.controls>button {
+    padding: 2.5vh;
+    margin: 0.5vh 5vh;
+    font-size: 3vh;
+    width: 10vh;
+    border: 1px solid black;
+    background-color: #89b0e5;
+    /* color: white; */
+    border-radius: 20px;
+}
+
+h1 {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.settings>button {
+    font-size: 2vh;
+    margin: 0 1vh;
+    padding: 0.25vh 1vh;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.controls>button:focus {
+    background-color: orange;
+}
+
+.settings>div,
+.settings>button {
+    font-family: 'Work Sans', sans-serif;
+}
+
+@media screen and (max-width: 720px) {
+    canvas#board {
+        width: 85%;
+    }
+
+    .controls>button {
+        /* padding: 2vh; */
+        margin: 0 4vh;
+        /* font-size: 3vh; */
+        /* width: 8vh; */
+    }
+
+    h1 {
+        padding: 0;
+        margin: 0;
+        font-size: 2.5vh;
+
+    }
+}
