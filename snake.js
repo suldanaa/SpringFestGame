@@ -75,27 +75,39 @@ function update(){
     }
 }
 
+//DIRECTIONS
+function goUp(){
+    velocityX  = 0;
+    velocityY = -1;
+}
+function goDown(){
+    velocityX  = 0;
+    velocityY = 1;
+}
+function goLeft(){
+    velocityX  = -1;
+    velocityY = 0;
+}
+function goRight(){
+    velocityX  = 1;
+    velocityY = 0;
+}
 
 //KEYBOARD
 function changeDirection(e){
     if(e.code == "ArrowUp" && velocityY != 1){
-        velocityX  = 0;
-        velocityY = -1;
+        goUp();
     }
     else if(e.code == "ArrowDown" && velocityY != 1){
-        velocityX  = 0;
-        velocityY = 1;
+        goDown();
     }
     else if(e.code == "ArrowLeft" && velocityX != 1 ){
-        velocityX  = -1;
-        velocityY = 0;
+        goLeft();
     }
     else if(e.code == "ArrowRight" && velocityX != 1){
-        velocityX  = 1;
-        velocityY = 0;
+        goRight();
     }
 }
-
 function placeFood(){
     //adjust so it doesn't touch the rim
     foodX = Math.floor(Math.random() * cols) * blockSize;
