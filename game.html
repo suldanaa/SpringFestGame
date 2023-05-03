@@ -13,6 +13,18 @@
     <script src="snake.js"> </script>
 </head>
 
+<style>
+body{
+    background-color: #00539C;
+    font-family: 'Angkor', cursive;
+    color: #EEA47F;
+}
+button{
+    background-color: #00539C;
+    font-family: 'Angkor', cursive;
+}
+</style>
+
 <body style="text-align:center">
     <h1>Snake Game</h1>
     <canvas id="board"> </canvas>
@@ -24,9 +36,6 @@
         <button onclick="goDown()">▼</button><br><br>
     </div>
     <div class="settings">
-        <button onclick="changeSpeed(false)">- SPEED</button>
-        <button onclick="changeSpeed(true)">+ SPEED</button><br><br>
-        <div id="speed">3</div>
         <div id="score">SCORE: 0</div>
     </div>
     <audio id="failAudio">
