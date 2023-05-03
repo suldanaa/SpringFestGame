@@ -29,27 +29,30 @@ window.onload = function () {
 
     placeFood();
     document.addEventListener("keyup", changeDirection);
-    setInterval(update, 1000 / 10);
+    intervalId = setInterval(update, 1000 / (speed)); // store the interval ID
 }
 
-// function changeSpeed(incOrDec) {
+function changeSpeed(incOrDec) {
 
-//     if (incOrDec) {
-//         speed += 2;
-//     } else {
-//         if (speed <= 2) {
-//             speed = 2;
-//             return;
-//         } else {
-//             speed -= 2;
-//         }
-//     }
-// }
+    if (incOrDec) {
+        speed += 2;
+    } else {
+        if (speed <= 2) {
+            speed = 2;
+            return;
+        } else {
+            speed -= 2;
+        }
+    }
+    clearInterval(intervalId);
+    intervalId = setInterval(update, 1000 / (10 + speed));
+}
 
 function update() {
     if (gameOver) {
         return;
     }
+    var interval = 1000 / (10 + speed);
     context.fillStyle = "black";//changes color of the board
     context.fillRect(0, 0, board.width, board.height);
 
@@ -59,6 +62,7 @@ function update() {
     if (snakeX == foodX && snakeY == foodY) {
         snakeBody.push([foodX, foodY]);
         score++;
+        document.getElementById("score").innerHTML = "SCORE: " + score;
         var audio = document.getElementById('eatAudio');
         audio.play();
         placeFood();
@@ -72,9 +76,10 @@ function update() {
     }
 
     context.fillStyle = "lime"; //changes color of the snake
-    snakeX += velocityX * blockSize / speed; //controls speed
-    snakeY += velocityY * blockSize / speed;
-    // document.getElementById("speed").innerHTML = speed + " (lower is faster)";
+    snakeX += velocityX * blockSize / 2; //controls speed
+    snakeY += velocityY * blockSize / 2;
+    document.getElementById("speed").innerHTML = "SPEED: " + speed;
+
     context.fillRect(snakeX, snakeY, blockSize / 2, blockSize / 2);
     for (let i = 0; i < snakeBody.length; i++) {
         context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize / 2, blockSize / 2);
