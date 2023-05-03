@@ -27,7 +27,6 @@ window.onload = function(){
 
     placeFood();
     document.addEventListener("keyup", changeDirection);
-    document.addEventListener('touchstart', touchStart);
     setInterval(update, 1000/10);
 }
 
@@ -96,32 +95,6 @@ function changeDirection(e){
         velocityY = 0;
     }
 }
-
-function touchStart(e){
-    e.preventDefault();
-    var currentY = e.touches[0].clientY;
-    var currentX = e.touches[0].clientX;
-
-    
-    if(snakeY > currentY){
-        velocityX  = 0;
-        velocityY = -1;
-         
-   } else if(snakeY < currentY){
-        velocityX  = 0;
-        velocityY = 1;
-   }
-   
-   else if (snakeX < currentX){
-        velocityX  = 1;
-        velocityY = 0;
-    }
-    else if(snakeX > currentX){
-        velocityX  = -1;
-        velocityY = 0;
-    }
-        
-    };
 
 function placeFood(){
     //adjust so it doesn't touch the rim
